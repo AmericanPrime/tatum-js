@@ -1,5 +1,5 @@
 module.exports = {
-  roots: ['<rootDir>/src'],
+  roots: ['/home/kwhite/tatum-js/tatum-js/src/src'],
   testMatch: [
     "**/__tests__/**/*.+(ts|tsx|js)",
     "**/?(*.)+(spec|test).+(ts|tsx|js)"
@@ -8,7 +8,7 @@ module.exports = {
     "^.+\\.(ts|tsx)$": "ts-jest"
   },
   testTimeout: 30000,
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  setupFilesAfterEnv: ['/home/kwhite/tatum-js/tatum-js/jest.setup.ts'],
   reporters: [
     "default",
     ["jest-junit", {

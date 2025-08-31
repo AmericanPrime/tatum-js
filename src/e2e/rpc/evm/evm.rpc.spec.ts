@@ -4,14 +4,14 @@ import { EvmE2eUtils } from './evm.e2e.utils'
 
 const testNetworks = [
   { network: Network.CELO },
-  { network: Network.CELO_ALFAJORES },
+  // { network: Network.CELO_ALFAJORES },
   // { network: Network.ARBITRUM_ONE },
   { network: Network.ARBITRUM_NOVA, apiKey: ApiKey.mainnet },
   {
     network: Network.ARBITRUM_NOVA_TESTNET,
     apiKey: ApiKey.testnet,
   },
-  { network: Network.HORIZEN_EON },
+  // { network: Network.HORIZEN_EON },
   // { network: Network.HORIZEN_EON_GOBI },
   { network: Network.CHILIZ },
   { network: Network.BINANCE_SMART_CHAIN },
@@ -26,6 +26,7 @@ const testNetworks = [
   { network: Network.ETHEREUM },
   { network: Network.ETHEREUM_SEPOLIA },
   { network: Network.ETHEREUM_HOLESKY },
+  { network: Network.ETHEREUM_HOODI },
   // { network: Network.FANTOM },
   // { network: Network.FANTOM_TESTNET, apiKey: process.env.V3_API_KEY_TESTNET },
   { network: Network.ETHEREUM_CLASSIC },
@@ -34,6 +35,8 @@ const testNetworks = [
   // { network: Network.OPTIMISM },
   { network: Network.HAQQ },
   { network: Network.HAQQ_TESTNET },
+  { network: Network.RONIN },
+  { network: Network.RONIN_SAIGON },
   // {
   //   network: Network.TRON,
   //   data: {
@@ -55,10 +58,10 @@ const testNetworks = [
   {
     network: Network.KLAYTN,
   },
-  {
-    network: Network.KLAYTN_BAOBAB,
-    apiKey: ApiKey.testnet,
-  },
+  // {
+  //   network: Network.KLAYTN_BAOBAB,
+  //   apiKey: ApiKey.testnet,
+  // },
   {
     network: Network.AVALANCHE_C,
   },
@@ -70,8 +73,8 @@ const testNetworks = [
     network: Network.XINFIN,
   },
   // { network: Network.CRONOS },
-  { network: Network.CRONOS_TESTNET, apiKey: ApiKey.testnet },
-  { network: Network.BASE },
+  // { network: Network.CRONOS_TESTNET, apiKey: ApiKey.testnet },
+  // { network: Network.BASE },
   { network: Network.ZK_SYNC, url: 'https://mainnet.era.zksync.io' },
   { network: Network.ZK_SYNC_TESTNET, url: 'https://sepolia.era.zksync.dev' },
 ]

@@ -1,6 +1,7 @@
 import { Container } from 'typedi'
 import { EvmBasedBeaconRpcSuite, EvmBasedRpcSuite } from '../../dto'
 import { NativeEvmBasedRpcSuite } from '../../dto/rpc/NativeEvmBasedRpcInterface'
+import { ZkSyncRpcSuite } from '../../dto/rpc/ZkSyncRpcSuite'
 import { CONFIG, Utils } from '../../util'
 import { Address } from '../address'
 import { FeeEvm } from '../fee'
@@ -10,7 +11,6 @@ import { Notification } from '../notification'
 import { Rates } from '../rate'
 import { Token } from '../token'
 import { TatumSdkChain } from './tatum'
-import { ZkSyncRpcSuite } from '../../dto/rpc/ZkSyncRpcSuite'
 
 export abstract class BaseEvm extends TatumSdkChain {
   rpc: EvmBasedRpcSuite
@@ -51,7 +51,7 @@ export class FullEvm extends NotificationEvm {
 
 // Base class for all EVM based chains
 export class ArbitrumNova extends BaseEvm {}
-export class ArbitrumOne extends BaseEvm {}
+export class ArbitrumOne extends NotificationEvm {}
 export class Aurora extends BaseEvm {}
 export class AvalancheC extends NotificationEvm {}
 export class Cronos extends NotificationEvm {}
@@ -66,6 +66,12 @@ export class Optimism extends NotificationEvm {}
 export class Palm extends BaseEvm {}
 export class Vechain extends BaseEvm {}
 export class XinFin extends BaseEvm {}
+export class Ronin extends BaseEvm {}
+export class Sonic extends BaseEvm {}
+export class Kaia extends BaseEvm {}
+export class Berachain extends NotificationEvm {}
+export class Unichain extends NotificationEvm {}
+export class Monad extends NotificationEvm {}
 export class Base extends NotificationEvm {}
 export class Flare extends NotificationEvm {}
 export class Chiliz extends NotificationEvm {}
@@ -102,7 +108,6 @@ export class ZkSync extends TatumSdkChain {
     this.rates = Container.of(id).get(Rates)
   }
 }
-
 
 // Full support for chains
 export class Ethereum extends FullEvm {

@@ -6,7 +6,6 @@ import {
   AddressEventNotificationChain,
   isAlgorandAlgodNetwork,
   isAlgorandIndexerNetwork,
-  isBnbLoadBalancerNetwork,
   isCardanoNetwork,
   isCasperNetwork,
   isCosmosNetwork,
@@ -53,11 +52,11 @@ import {
   Aurora,
   AvalancheC,
   Base,
+  Berachain,
   BinanceSmartChain,
   Bitcoin,
   BitcoinCash,
   BitcoinElectrs,
-  Bnb,
   CardanoRosetta,
   Casper,
   Celo,
@@ -80,20 +79,25 @@ import {
   HorizenEon,
   Iota,
   Kadena,
+  Kaia,
   Klaytn,
   Kucoin,
   Litecoin,
+  Monad,
   Oasis,
   Optimism,
   Palm,
   Polygon,
+  Ronin,
   Rostrum,
   Solana,
+  Sonic,
   Stellar,
   TatumConfig,
   Tezos,
   Ton,
   Tron,
+  Unichain,
   UtxoRpc,
   Vechain,
   XinFin,
@@ -109,7 +113,6 @@ import { TronRpc } from '../service/rpc/evm/TronRpc'
 import { ZkSyncLoadBalancerRpc } from '../service/rpc/evm/ZkSyncLoadBalancerRpc'
 import { AlgorandAlgodLoadBalancerRpc } from '../service/rpc/other/AlgorandAlgodLoadBalancerRpc'
 import { AlgorandIndexerLoadBalancerRpc } from '../service/rpc/other/AlgorandIndexerLoadBalancerRpc'
-import { BnbLoadBalancerRpc } from '../service/rpc/other/BnbLoadBalancerRpc'
 import { CardanoLoadBalancerRpc } from '../service/rpc/other/CardanoLoadBalancerRpc'
 import { CasperLoadBalancerRpc } from '../service/rpc/other/CasperLoadBalancerRpc'
 import { CosmosLoadBalancerRpc } from '../service/rpc/other/CosmosLoadBalancerRpc'
@@ -189,10 +192,6 @@ export const Utils = {
 
     if (isTezosNetwork(network)) {
       return Container.of(id).get(TezosLoadBalancerRpc) as T
-    }
-
-    if (isBnbLoadBalancerNetwork(network)) {
-      return Container.of(id).get(BnbLoadBalancerRpc) as T
     }
 
     if (isDogecoinLoadBalancedNetwork(network)) {
@@ -335,15 +334,6 @@ export const Utils = {
       }
     }
 
-    if (isBnbLoadBalancerNetwork(network)) {
-      return {
-        jsonrpc: '2.0',
-        method: 'block',
-        params: {},
-        id: 1,
-      }
-    }
-
     if (isCardanoNetwork(network)) {
       return {
         network_identifier: {
@@ -405,10 +395,6 @@ export const Utils = {
       return url
     }
 
-    if (isBnbLoadBalancerNetwork(network)) {
-      return url
-    }
-
     if (isRostrumLoadBalancerNetwork(network)) {
       return url
     }
@@ -452,10 +438,6 @@ export const Utils = {
 
     if (isSameGetBlockNetwork(network)) {
       return new BigNumber((response.result as number) || -1).toNumber()
-    }
-
-    if (isBnbLoadBalancerNetwork(network)) {
-      return new BigNumber((response.result.block.header.height as number) || -1).toNumber()
     }
 
     if (isEosNetwork(network)) {
@@ -511,10 +493,6 @@ export const Utils = {
 
     if (isEosNetwork(network)) {
       return response.head_block_num !== undefined
-    }
-
-    if (isBnbLoadBalancerNetwork(network)) {
-      return response.result.block.header.height !== undefined
     }
 
     if (isSameGetBlockNetwork(network)) {
@@ -591,10 +569,24 @@ export const Utils = {
         return Network.CHILIZ
       case AddressEventNotificationChain.FLR:
         return Network.FLARE
+      case AddressEventNotificationChain.CRO:
+        return Network.CRONOS
       case AddressEventNotificationChain.BASE:
         return Network.BASE
       case AddressEventNotificationChain.AVAX:
         return Network.AVALANCHE_C
+      case AddressEventNotificationChain.FTM:
+        return Network.FANTOM
+      case AddressEventNotificationChain.OP:
+        return Network.OPTIMISM
+      case AddressEventNotificationChain.ARB:
+        return Network.ARBITRUM_ONE
+      case AddressEventNotificationChain.BERA:
+        return Network.BERACHAIN_MAINNET
+      case AddressEventNotificationChain.MON:
+        return Network.MONAD_TESTNET
+      case AddressEventNotificationChain.UNI:
+        return Network.UNICHAIN_MAINNET
       default:
         throw new Error(`Chain ${chain} is not supported.`)
     }
@@ -617,6 +609,7 @@ export const Utils = {
       case Network.ETHEREUM:
       case Network.ETHEREUM_SEPOLIA:
       case Network.ETHEREUM_HOLESKY:
+      case Network.ETHEREUM_HOODI:
         return AddressEventNotificationChain.ETH
       case Network.POLYGON:
       case Network.POLYGON_AMOY:
@@ -651,7 +644,6 @@ export const Utils = {
       case Network.FLARE_SONGBIRD:
         return AddressEventNotificationChain.FLR
       case Network.CRONOS:
-      case Network.CRONOS_TESTNET:
         return AddressEventNotificationChain.CRO
       case Network.BASE:
       case Network.BASE_SEPOLIA:
@@ -664,7 +656,15 @@ export const Utils = {
         return AddressEventNotificationChain.FTM
       case Network.OPTIMISM:
       case Network.OPTIMISM_TESTNET:
-        return AddressEventNotificationChain.OPTIMISM
+        return AddressEventNotificationChain.OP
+      case Network.ARBITRUM_ONE:
+        return AddressEventNotificationChain.ARB
+      case Network.BERACHAIN_MAINNET:
+        return AddressEventNotificationChain.BERA
+      case Network.MONAD_TESTNET:
+        return AddressEventNotificationChain.MON
+      case Network.UNICHAIN_MAINNET:
+        return AddressEventNotificationChain.UNI
       default:
         throw new Error(`Network ${network} is not supported.`)
     }
@@ -806,6 +806,7 @@ export const Utils = {
       case Network.ETHEREUM:
       case Network.ETHEREUM_SEPOLIA:
       case Network.ETHEREUM_HOLESKY:
+      case Network.ETHEREUM_HOODI:
         return new Ethereum(id) as T
       case Network.ETHEREUM_CLASSIC:
         return new EthereumClassic(id) as T
@@ -894,8 +895,6 @@ export const Utils = {
         return new Eos(id) as T
       case Network.CHILIZ:
         return new Chiliz(id) as T
-      case Network.BNB:
-        return new Bnb(id) as T
       case Network.ALGORAND_ALGOD:
       case Network.ALGORAND_ALGOD_TESTNET:
         return new AlgorandAlgod(id) as T
@@ -913,6 +912,22 @@ export const Utils = {
       case Network.BASE:
       case Network.BASE_SEPOLIA:
         return new Base(id) as T
+      case Network.RONIN:
+      case Network.RONIN_SAIGON:
+        return new Ronin(id) as T
+      case Network.SONIC_BLAZE:
+      case Network.SONIC_MAINNET:
+        return new Sonic(id) as T
+      case Network.KAIA_MAINNET:
+      case Network.KAIA_KAIROS:
+        return new Kaia(id) as T
+      case Network.BERACHAIN_MAINNET:
+        return new Berachain(id) as T
+      case Network.UNICHAIN_MAINNET:
+      case Network.UNICHAIN_SEPOLIA:
+        return new Unichain(id) as T
+      case Network.MONAD_TESTNET:
+        return new Monad(id) as T
       case Network.KADENA:
       case Network.KADENA_TESTNET:
         return new Kadena(id) as T

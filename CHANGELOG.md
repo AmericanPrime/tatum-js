@@ -1,3 +1,81 @@
+## [4.2.57] - 2025.8.25
+
+### Removed
+
+- Removed support for cronos testnet subscriptions
+
+## [4.2.56] - 2025.8.14
+
+### Added
+
+- Added support for monad testnet and unichain mainnet subscriptions
+
+## [4.2.55] - 2025.8.1
+
+### Added
+
+- Added monad
+
+## [4.2.54] - 2025.7.30
+
+### Added
+
+- Added unichain
+
+## [4.2.53] - 2025.6.27
+
+### Updated
+
+- Updated SDK to call new version of data-api endpoints
+
+## [4.2.52] - 2025.5.20
+
+### Added
+
+- Added support for Ethereum Hoodi
+
+## [4.2.51] - 2025.3.17
+
+### Added
+
+- Added support for berachain mainnet subscriptions
+
+## [4.2.50] - 2025.2.27
+
+### Added
+
+- Added berachain
+
+## [4.2.49] - 2025.2.20
+
+### Fix
+
+- Update version to release
+
+## [4.2.48] - 2025.2.20
+
+### Fix
+
+- Fixed tests failing
+
+## [4.2.47] - 2025.2.19
+
+### Added
+
+- Added sonic & kaia
+
+## [4.2.46] - 2025.2.5
+
+### Removed
+
+- Removed BNB support
+
+## [4.2.45] - 2024.12.20
+
+### Fixed
+
+- Fixed Tatum Connector retry logic causing generic error
+
 ## [4.2.44] - 2024.12.5
 
 ### Added

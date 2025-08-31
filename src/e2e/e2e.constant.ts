@@ -27,6 +27,7 @@ export const AddressEventNetworks = [
   Network.ETHEREUM,
   Network.ETHEREUM_SEPOLIA,
   Network.ETHEREUM_HOLESKY,
+  Network.ETHEREUM_HOODI,
   Network.POLYGON,
   Network.POLYGON_AMOY,
   Network.CELO,
@@ -47,7 +48,6 @@ export const AddressEventNetworks = [
   Network.FLARE_COSTON_2,
   Network.FLARE_SONGBIRD,
   Network.CRONOS,
-  Network.CRONOS_TESTNET,
   Network.FANTOM,
   Network.FANTOM_TESTNET,
   Network.OPTIMISM,
@@ -56,6 +56,9 @@ export const AddressEventNetworks = [
   Network.BASE_SEPOLIA,
   Network.AVALANCHE_C,
   Network.AVALANCHE_C_TESTNET,
+  Network.BERACHAIN_MAINNET,
+  Network.MONAD_TESTNET,
+  Network.UNICHAIN_MAINNET,
 ]
 
 export const IncomingNativeTxNetworks = [
@@ -68,6 +71,7 @@ export const IncomingNativeTxNetworks = [
   Network.ETHEREUM,
   Network.ETHEREUM_SEPOLIA,
   Network.ETHEREUM_HOLESKY,
+  Network.ETHEREUM_HOODI,
   Network.POLYGON,
   Network.POLYGON_AMOY,
   Network.CELO,
@@ -90,7 +94,6 @@ export const IncomingNativeTxNetworks = [
   Network.FLARE_COSTON_2,
   Network.FLARE_SONGBIRD,
   Network.CRONOS,
-  Network.CRONOS_TESTNET,
   Network.FANTOM,
   Network.FANTOM_TESTNET,
   Network.OPTIMISM,
@@ -99,6 +102,9 @@ export const IncomingNativeTxNetworks = [
   Network.BASE_SEPOLIA,
   Network.AVALANCHE_C,
   Network.AVALANCHE_C_TESTNET,
+  Network.BERACHAIN_MAINNET,
+  Network.MONAD_TESTNET,
+  Network.UNICHAIN_MAINNET,
 ]
 
 export const OutgoingNativeTxNetworks = [
@@ -109,6 +115,7 @@ export const OutgoingNativeTxNetworks = [
   Network.ETHEREUM,
   Network.ETHEREUM_SEPOLIA,
   Network.ETHEREUM_HOLESKY,
+  Network.ETHEREUM_HOODI,
   Network.POLYGON,
   Network.POLYGON_AMOY,
   Network.CELO,
@@ -131,7 +138,6 @@ export const OutgoingNativeTxNetworks = [
   Network.FLARE_COSTON_2,
   Network.FLARE_SONGBIRD,
   Network.CRONOS,
-  Network.CRONOS_TESTNET,
   Network.FANTOM,
   Network.FANTOM_TESTNET,
   Network.OPTIMISM,
@@ -140,12 +146,16 @@ export const OutgoingNativeTxNetworks = [
   Network.BASE_SEPOLIA,
   Network.AVALANCHE_C,
   Network.AVALANCHE_C_TESTNET,
+  Network.BERACHAIN_MAINNET,
+  Network.MONAD_TESTNET,
+  Network.UNICHAIN_MAINNET,
 ]
 
 export const OutgoingFailedNetworks = [
   Network.ETHEREUM,
   Network.ETHEREUM_SEPOLIA,
   Network.ETHEREUM_HOLESKY,
+  Network.ETHEREUM_HOODI,
   Network.POLYGON,
   Network.POLYGON_AMOY,
   Network.CELO,
@@ -160,7 +170,6 @@ export const OutgoingFailedNetworks = [
   Network.FLARE_COSTON_2,
   Network.FLARE_SONGBIRD,
   Network.CRONOS,
-  Network.CRONOS_TESTNET,
   Network.FANTOM,
   Network.FANTOM_TESTNET,
   Network.OPTIMISM,
@@ -169,12 +178,16 @@ export const OutgoingFailedNetworks = [
   Network.BASE_SEPOLIA,
   Network.AVALANCHE_C,
   Network.AVALANCHE_C_TESTNET,
+  Network.BERACHAIN_MAINNET,
+  Network.MONAD_TESTNET,
+  Network.UNICHAIN_MAINNET,
 ]
 
 export const PaidFeeNetworks = [
   Network.ETHEREUM,
   Network.ETHEREUM_SEPOLIA,
   Network.ETHEREUM_HOLESKY,
+  Network.ETHEREUM_HOODI,
   Network.POLYGON,
   Network.POLYGON_AMOY,
   Network.CELO,
@@ -193,7 +206,6 @@ export const PaidFeeNetworks = [
   Network.FLARE_COSTON_2,
   Network.FLARE_SONGBIRD,
   Network.CRONOS,
-  Network.CRONOS_TESTNET,
   Network.FANTOM,
   Network.FANTOM_TESTNET,
   Network.OPTIMISM,
@@ -202,12 +214,16 @@ export const PaidFeeNetworks = [
   Network.BASE_SEPOLIA,
   Network.AVALANCHE_C,
   Network.AVALANCHE_C_TESTNET,
+  Network.BERACHAIN_MAINNET,
+  Network.MONAD_TESTNET,
+  Network.UNICHAIN_MAINNET,
 ]
 
 export const FungibleTxNetworks = [
   Network.ETHEREUM,
   Network.ETHEREUM_SEPOLIA,
   Network.ETHEREUM_HOLESKY,
+  Network.ETHEREUM_HOODI,
   Network.POLYGON,
   Network.POLYGON_AMOY,
   Network.CELO,
@@ -226,7 +242,6 @@ export const FungibleTxNetworks = [
   Network.FLARE_COSTON_2,
   Network.FLARE_SONGBIRD,
   Network.CRONOS,
-  Network.CRONOS_TESTNET,
   Network.FANTOM,
   Network.FANTOM_TESTNET,
   Network.OPTIMISM,
@@ -235,12 +250,16 @@ export const FungibleTxNetworks = [
   Network.BASE_SEPOLIA,
   Network.AVALANCHE_C,
   Network.AVALANCHE_C_TESTNET,
+  Network.BERACHAIN_MAINNET,
+  Network.MONAD_TESTNET,
+  Network.UNICHAIN_MAINNET,
 ]
 
 export const NftNetworks = [
   Network.ETHEREUM,
   Network.ETHEREUM_SEPOLIA,
   Network.ETHEREUM_HOLESKY,
+  Network.ETHEREUM_HOODI,
   Network.POLYGON,
   Network.POLYGON_AMOY,
   Network.CELO,
@@ -259,7 +278,6 @@ export const NftNetworks = [
   Network.FLARE_COSTON_2,
   Network.FLARE_SONGBIRD,
   Network.CRONOS,
-  Network.CRONOS_TESTNET,
   Network.FANTOM,
   Network.FANTOM_TESTNET,
   Network.OPTIMISM,
@@ -268,12 +286,16 @@ export const NftNetworks = [
   Network.BASE_SEPOLIA,
   Network.AVALANCHE_C,
   Network.AVALANCHE_C_TESTNET,
+  Network.BERACHAIN_MAINNET,
+  Network.MONAD_TESTNET,
+  Network.UNICHAIN_MAINNET,
 ]
 
 export const MultitokenNetworks = [
   Network.ETHEREUM,
   Network.ETHEREUM_SEPOLIA,
   Network.ETHEREUM_HOLESKY,
+  Network.ETHEREUM_HOODI,
   Network.POLYGON,
   Network.POLYGON_AMOY,
   Network.CELO,
@@ -287,7 +309,6 @@ export const MultitokenNetworks = [
   Network.FLARE_COSTON_2,
   Network.FLARE_SONGBIRD,
   Network.CRONOS,
-  Network.CRONOS_TESTNET,
   Network.FANTOM,
   Network.FANTOM_TESTNET,
   Network.OPTIMISM,
@@ -296,12 +317,16 @@ export const MultitokenNetworks = [
   Network.BASE_SEPOLIA,
   Network.AVALANCHE_C,
   Network.AVALANCHE_C_TESTNET,
+  Network.BERACHAIN_MAINNET,
+  Network.MONAD_TESTNET,
+  Network.UNICHAIN_MAINNET,
 ]
 
 export const FailedTxPerBlockNetworks = [
   Network.ETHEREUM,
   Network.ETHEREUM_SEPOLIA,
   Network.ETHEREUM_HOLESKY,
+  Network.ETHEREUM_HOODI,
   Network.POLYGON,
   Network.POLYGON_AMOY,
   Network.CELO,
@@ -320,7 +345,6 @@ export const FailedTxPerBlockNetworks = [
   Network.FLARE_COSTON_2,
   Network.FLARE_SONGBIRD,
   Network.CRONOS,
-  Network.CRONOS_TESTNET,
   Network.FANTOM,
   Network.FANTOM_TESTNET,
   Network.OPTIMISM,
@@ -329,12 +353,16 @@ export const FailedTxPerBlockNetworks = [
   Network.BASE_SEPOLIA,
   Network.AVALANCHE_C,
   Network.AVALANCHE_C_TESTNET,
+  Network.BERACHAIN_MAINNET,
+  Network.MONAD_TESTNET,
+  Network.UNICHAIN_MAINNET,
 ]
 
 export const ContractAddressLogEventNetworks = [
   Network.ETHEREUM,
   Network.ETHEREUM_SEPOLIA,
   Network.ETHEREUM_HOLESKY,
+  Network.ETHEREUM_HOODI,
   Network.POLYGON,
   Network.POLYGON_AMOY,
   Network.CELO,
@@ -351,12 +379,16 @@ export const ContractAddressLogEventNetworks = [
   Network.FANTOM,
   Network.BASE,
   Network.AVALANCHE_C,
+  Network.BERACHAIN_MAINNET,
+  Network.MONAD_TESTNET,
+  Network.UNICHAIN_MAINNET,
 ]
 
 export const InternalTxNetworks = [
   Network.ETHEREUM,
   Network.ETHEREUM_SEPOLIA,
   Network.ETHEREUM_HOLESKY,
+  Network.ETHEREUM_HOODI,
   Network.CELO,
   Network.CELO_ALFAJORES,
   Network.TEZOS,
@@ -368,4 +400,7 @@ export const InternalTxNetworks = [
   Network.FANTOM,
   Network.BASE,
   Network.AVALANCHE_C,
+  Network.BERACHAIN_MAINNET,
+  Network.MONAD_TESTNET,
+  Network.UNICHAIN_MAINNET,
 ]

@@ -12,7 +12,6 @@ export enum Network {
   AVALANCHE_X = 'avax-x-mainnet',
   BASE = 'base-mainnet',
   BINANCE_SMART_CHAIN = 'bsc-mainnet',
-  BNB = 'bnb-beacon-chain-mainnet',
   BITCOIN = 'bitcoin-mainnet',
   BITCOIN_CASH = 'bitcoin-cash-mainnet',
   CARDANO_ROSETTA = 'cardano-mainnet',
@@ -58,6 +57,11 @@ export enum Network {
   CASPER = 'casper-mainnet',
   TON = 'ton-mainnet',
   ZK_SYNC = 'zksync-mainnet',
+  RONIN = 'ronin-mainnet',
+  SONIC_MAINNET = 'sonic-mainnet',
+  KAIA_MAINNET = 'kaia-mainnet',
+  BERACHAIN_MAINNET = 'berachain-mainnet',
+  UNICHAIN_MAINNET = 'unichain-mainnet',
 
   // Testnets
   ALGORAND_ALGOD_TESTNET = 'algorand-testnet-algod',
@@ -78,6 +82,7 @@ export enum Network {
   DOGECOIN_TESTNET = 'doge-testnet',
   ETHEREUM_SEPOLIA = 'ethereum-sepolia',
   ETHEREUM_HOLESKY = 'ethereum-holesky',
+  ETHEREUM_HOODI = 'ethereum-hoodi',
   EOS_TESTNET = 'eos-testnet',
   FANTOM_TESTNET = 'fantom-testnet',
   FLARE_COSTON = 'flare-coston',
@@ -114,6 +119,11 @@ export enum Network {
   ROSTRUM_TESTNET = 'bch-testnet-rostrum',
   TON_TESTNET = 'ton-testnet',
   ZK_SYNC_TESTNET = 'zksync-testnet',
+  RONIN_SAIGON = 'ronin-saigon',
+  SONIC_BLAZE = 'sonic-blaze',
+  KAIA_KAIROS = 'kaia-kairos',
+  UNICHAIN_SEPOLIA = 'unichain-sepolia',
+  MONAD_TESTNET = 'monad-testnet',
 }
 
 export const EVM_BASED_NETWORKS = [
@@ -121,6 +131,7 @@ export const EVM_BASED_NETWORKS = [
   Network.ETHEREUM_SEPOLIA,
   Network.ETHEREUM_CLASSIC,
   Network.ETHEREUM_HOLESKY,
+  Network.ETHEREUM_HOODI,
   Network.AVALANCHE_C,
   Network.AVALANCHE_C_TESTNET,
   Network.POLYGON,
@@ -167,6 +178,16 @@ export const EVM_BASED_NETWORKS = [
   Network.CHILIZ,
   Network.ZK_SYNC,
   Network.ZK_SYNC_TESTNET,
+  Network.RONIN,
+  Network.RONIN_SAIGON,
+  Network.KAIA_MAINNET,
+  Network.KAIA_KAIROS,
+  Network.SONIC_MAINNET,
+  Network.SONIC_BLAZE,
+  Network.BERACHAIN_MAINNET,
+  Network.UNICHAIN_MAINNET,
+  Network.UNICHAIN_SEPOLIA,
+  Network.MONAD_TESTNET,
 ]
 
 export const UTXO_BASED_NETWORKS = [
@@ -233,6 +254,7 @@ export const EVM_LOAD_BALANCER_NETWORKS = [
   Network.ETHEREUM,
   Network.ETHEREUM_SEPOLIA,
   Network.ETHEREUM_HOLESKY,
+  Network.ETHEREUM_HOODI,
   Network.POLYGON,
   Network.POLYGON_AMOY,
   Network.OPTIMISM,
@@ -258,7 +280,6 @@ export const EOS_LOAD_BALANCER_NETWORKS = [Network.EOS]
 export const XRP_LOAD_BALANCER_NETWORKS = [Network.XRP, Network.XRP_TESTNET]
 export const NATIVE_EVM_LOAD_BALANCER_NETWORKS = [Network.KLAYTN, Network.KLAYTN_BAOBAB]
 export const SOLANA_NETWORKS = [Network.SOLANA, Network.SOLANA_DEVNET]
-export const BNB_LOAD_BALANCER_NETWORKS = [Network.BNB]
 export const TEZOS_NETWORKS = [Network.TEZOS, Network.TEZOS_TESTNET]
 export const ALGORAND_ALGOD_NETWORKS = [Network.ALGORAND_ALGOD, Network.ALGORAND_ALGOD_TESTNET]
 export const ALGORAND_INDEXER_NETWORKS = [Network.ALGORAND_INDEXER, Network.ALGORAND_INDEXER_TESTNET]
@@ -291,7 +312,6 @@ export const LOAD_BALANCER_NETWORKS = [
   ...XRP_LOAD_BALANCER_NETWORKS,
   ...NATIVE_EVM_LOAD_BALANCER_NETWORKS,
   ...SOLANA_NETWORKS,
-  ...BNB_LOAD_BALANCER_NETWORKS,
   ...TEZOS_NETWORKS,
   ...ALGORAND_ALGOD_NETWORKS,
   ...ALGORAND_INDEXER_NETWORKS,
@@ -307,6 +327,8 @@ export const LOAD_BALANCER_NETWORKS = [
 export const EVM_ARCHIVE_NON_ARCHIVE_LOAD_BALANCER_NETWORKS = [
   Network.ETHEREUM,
   Network.ETHEREUM_SEPOLIA,
+  Network.ETHEREUM_HOLESKY,
+  Network.ETHEREUM_HOODI,
   Network.HAQQ,
   Network.HAQQ_TESTNET,
   Network.POLYGON,
@@ -318,6 +340,7 @@ export const EVM_ARCHIVE_NON_ARCHIVE_BEACON_LOAD_BALANCER_NETWORKS = [
   Network.ETHEREUM,
   Network.ETHEREUM_SEPOLIA,
   Network.ETHEREUM_HOLESKY,
+  Network.ETHEREUM_HOODI,
 ]
 
 export const TRON_NETWORKS = [Network.TRON, Network.TRON_SHASTA]
@@ -375,8 +398,6 @@ export const isRostrumLoadBalancerNetwork = (network: Network) =>
 
 export const isNativeEvmLoadBalancerNetwork = (network: Network) =>
   NATIVE_EVM_LOAD_BALANCER_NETWORKS.includes(network)
-
-export const isBnbLoadBalancerNetwork = (network: Network) => BNB_LOAD_BALANCER_NETWORKS.includes(network)
 
 export const isTezosNetwork = (network: Network) => TEZOS_NETWORKS.includes(network)
 
@@ -448,6 +469,29 @@ export type NetworkMetadata = {
 }
 
 export const NETWORK_METADATA: Record<Network, NetworkMetadata> = {
+  [Network.BERACHAIN_MAINNET]: {
+    currency: Currency.BERA,
+    testnet: false,
+    defaultMainnet: true,
+  },
+  [Network.UNICHAIN_MAINNET]: {
+    currency: Currency.ETH_UNI,
+    testnet: false,
+    defaultMainnet: true,
+    chainId: 130,
+  },
+  [Network.UNICHAIN_SEPOLIA]: {
+    currency: Currency.ETH_UNI,
+    testnet: true,
+    defaultTestnet: true,
+    chainId: 1301,
+  },
+  [Network.MONAD_TESTNET]: {
+    currency: Currency.MON,
+    testnet: true,
+    defaultTestnet: true,
+    chainId: 10143,
+  },
   [Network.ETHEREUM_SEPOLIA]: {
     currency: Currency.ETH,
     testnet: true,
@@ -458,6 +502,11 @@ export const NETWORK_METADATA: Record<Network, NetworkMetadata> = {
     currency: Currency.ETH,
     testnet: true,
     chainId: 17000,
+  },
+  [Network.ETHEREUM_HOODI]: {
+    currency: Currency.ETH,
+    testnet: true,
+    chainId: 560048,
   },
   [Network.ETHEREUM]: {
     currency: Currency.ETH,
@@ -654,11 +703,6 @@ export const NETWORK_METADATA: Record<Network, NetworkMetadata> = {
     testnet: true,
     defaultTestnet: true,
   },
-  [Network.BNB]: {
-    currency: Currency.BNB,
-    testnet: false,
-    defaultMainnet: true,
-  },
   [Network.DOGECOIN]: {
     currency: Currency.DOGE,
     testnet: false,
@@ -729,30 +773,30 @@ export const NETWORK_METADATA: Record<Network, NetworkMetadata> = {
     chainId: 4002,
   },
   [Network.ARBITRUM_NOVA]: {
-    currency: Currency.ARB,
+    currency: Currency.ETH_ARB,
     testnet: false,
     defaultMainnet: true,
     chainId: 42170,
   },
   [Network.ARBITRUM_NOVA_TESTNET]: {
-    currency: Currency.ARB,
+    currency: Currency.ETH_ARB,
     testnet: true,
     defaultTestnet: true,
     chainId: 421614,
   },
   [Network.ARBITRUM_ONE]: {
-    currency: Currency.ARB,
+    currency: Currency.ETH_ARB,
     testnet: false,
     chainId: 42161,
   },
   [Network.OPTIMISM]: {
-    currency: Currency.OP,
+    currency: Currency.ETH_OP,
     testnet: false,
     defaultMainnet: true,
     chainId: 10,
   },
   [Network.OPTIMISM_TESTNET]: {
-    currency: Currency.OP,
+    currency: Currency.ETH_OP,
     testnet: true,
     defaultTestnet: true,
   },
@@ -943,12 +987,12 @@ export const NETWORK_METADATA: Record<Network, NetworkMetadata> = {
     chainId: 0,
   },
   [Network.BASE]: {
-    currency: Currency.BASE,
+    currency: Currency.ETH_BASE,
     testnet: false,
     chainId: 8453,
   },
   [Network.BASE_SEPOLIA]: {
-    currency: Currency.BASE,
+    currency: Currency.ETH_BASE,
     defaultTestnet: true,
     testnet: true,
     chainId: 84532,
@@ -1000,5 +1044,35 @@ export const NETWORK_METADATA: Record<Network, NetworkMetadata> = {
     currency: Currency.ZKS,
     testnet: true,
     chainId: 300,
+  },
+  [Network.RONIN]: {
+    currency: Currency.RON,
+    testnet: false,
+    chainId: 2020,
+  },
+  [Network.RONIN_SAIGON]: {
+    currency: Currency.RON,
+    chainId: 2021,
+    testnet: true,
+  },
+  [Network.SONIC_MAINNET]: {
+    currency: Currency.S,
+    testnet: false,
+    chainId: 146,
+  },
+  [Network.SONIC_BLAZE]: {
+    currency: Currency.S,
+    testnet: true,
+    chainId: 57054,
+  },
+  [Network.KAIA_MAINNET]: {
+    currency: Currency.KAIA,
+    testnet: false,
+    chainId: 8217,
+  },
+  [Network.KAIA_KAIROS]: {
+    currency: Currency.KAIA,
+    testnet: true,
+    chainId: 1001,
   },
 }
